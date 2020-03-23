@@ -1,0 +1,64 @@
+ID                  workflow-FkfFX00433Gqk2Yj9x9409XZ
+Class               workflow
+Project             project-Fkb6Gkj433GVVvj73J7x8KbV
+Folder              /apps_workflows
+Name                grab_md5sum_decompress
+State               open
+Visibility          visible
+Types               -
+Properties          -
+Tags                -
+Outgoing links      -
+Created             Sat Mar 14 10:59:12 2020
+Created by          jwahn
+Last modified       Sat Mar 14 14:35:43 2020
+Edit Version        14
+Title               grab_md5sum_decompress
+Summary             
+Output Folder       -
+Input Spec          stage-FkZz60j4yBGbbpf9JjyXGg5Y:
+                    [stage-FkZz60j4yBGbbpf9JjyXGg5Y.in (array:file, default=[{"$dnanexus_link":
+                  {"outputField": "out", "stage":
+                  "stage-FkfFXX8433GgKPbkPQgBx3QV"}}])]
+                    [stage-FkZz60j4yBGbbpf9JjyXGg5Y.cmd (string, default="md5sum *.tar.gz >
+                  200306_K00178_0255_BHGGH5BBXY_clinicalgenetics.tar.gz.check.md5"
+                  )]
+                    [stage-FkZz60j4yBGbbpf9JjyXGg5Y.image (string)]
+                stage-FkfKg08433Gkz40p0bv8k2bK:
+                    [stage-FkfKg08433Gkz40p0bv8k2bK.in (array:file, default=[{"$dnanexus_link":
+                  {"outputField": "out", "stage":
+                  "stage-FkfFXX8433GgKPbkPQgBx3QV"}}])]
+                    [stage-FkfKg08433Gkz40p0bv8k2bK.cmd (string, default="tar zxf *")]
+                    [stage-FkfKg08433Gkz40p0bv8k2bK.image (string)]
+                stage-FkfFXX0433GYJq31K07PvKVY:
+                    [stage-FkfFXX0433GYJq31K07PvKVY.in (array:file)]
+                    [stage-FkfFXX0433GYJq31K07PvKVY.cmd (string, default="aria2c
+                  --http-user=clinicalgenetics --http-passwd=xxxxxxxxxxxxxx http:/
+                  /sunstrider.medgen.medschl.cam.ac.uk/clinicalgenetics/200306_K00
+                  178_0255_BHGGH5BBXY_clinicalgenetics.tar.gz.md5")]
+                    [stage-FkfFXX0433GYJq31K07PvKVY.image (string)]
+                stage-FkfFXX8433GgKPbkPQgBx3QV:
+                    [stage-FkfFXX8433GgKPbkPQgBx3QV.in (array:file)]
+                    [stage-FkfFXX8433GgKPbkPQgBx3QV.cmd (string, default="aria2c
+                  --http-user=clinicalgenetics --http-passwd=xxxxxxxxxxxxxx
+                  --file-allocation=falloc -x 16 -j 16 -s 16 http://sunstrider.med
+                  gen.medschl.cam.ac.uk/clinicalgenetics/200306_K00178_0255_BHGGH5
+                  BBXY_clinicalgenetics.tar.gz")]
+                    [stage-FkfFXX8433GgKPbkPQgBx3QV.image (string)]
+Output Spec         stage-FkZz60j4yBGbbpf9JjyXGg5Y:
+                    [stage-FkZz60j4yBGbbpf9JjyXGg5Y.out (array:file)]
+                stage-FkfKg08433Gkz40p0bv8k2bK:
+                    [stage-FkfKg08433Gkz40p0bv8k2bK.out (array:file)]
+                stage-FkfFXX0433GYJq31K07PvKVY:
+                    [stage-FkfFXX0433GYJq31K07PvKVY.out (array:file)]
+                stage-FkfFXX8433GgKPbkPQgBx3QV:
+                    [stage-FkfFXX8433GgKPbkPQgBx3QV.out (array:file)]
+Stage 0             stage-FkfFXX0433GYJq31K07PvKVY
+  Executable        app-swiss-army-knife/3.0.0
+Stage 1             stage-FkfFXX8433GgKPbkPQgBx3QV
+  Executable        app-swiss-army-knife/3.0.0
+Stage 2             stage-FkZz60j4yBGbbpf9JjyXGg5Y
+  Executable        app-swiss-army-knife/3.0.0
+Stage 3             stage-FkfKg08433Gkz40p0bv8k2bK
+  Executable        app-swiss-army-knife/3.0.0
+initializedFrom     workflow-FkbqZZQ433GvbGXXPf89Bg4g
