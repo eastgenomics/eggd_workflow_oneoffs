@@ -1,0 +1,31 @@
+ID                  workflow-FkbqZZQ433GvbGXXPf89Bg4g
+Class               workflow
+Project             project-Fkb6Gkj433GVVvj73J7x8KbV
+Folder              /apps_workflows
+Name                md5sum
+State               open
+Visibility          visible
+Types               -
+Properties          -
+Tags                -
+Outgoing links      -
+Created             Fri Mar 13 16:52:34 2020
+Created by          jwahn
+Last modified       Fri Mar 13 16:52:34 2020
+Edit Version        0
+Title               md5sum
+Summary             
+Output Folder       -
+Input Spec          stage-FkZz60j4yBGbbpf9JjyXGg5Y:
+                    [stage-FkZz60j4yBGbbpf9JjyXGg5Y.in (array:file)]
+                    [stage-FkZz60j4yBGbbpf9JjyXGg5Y.cmd (string, default="dx download --auth-token
+                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                  project-Fjj60Qj4yBGvQXbb5Z6FXkgF:file-FkZkqYj4zvGzqyVb3gF0pgzx
+                  && md5sum 200306_K00178_0254_AHGGF7BBXY_clinicalgenetics.tar.gz
+                  > 200306_K00178_0254_AHGGF7BBXY_clinicalgenetics.check.tar.gz.md
+                  5")]
+                    [stage-FkZz60j4yBGbbpf9JjyXGg5Y.image (string)]
+Output Spec         stage-FkZz60j4yBGbbpf9JjyXGg5Y:
+                    [stage-FkZz60j4yBGbbpf9JjyXGg5Y.out (array:file)]
+Stage 0             stage-FkZz60j4yBGbbpf9JjyXGg5Y
+  Executable        app-swiss-army-knife/3.0.0
